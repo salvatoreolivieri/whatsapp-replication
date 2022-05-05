@@ -7,3 +7,58 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body{
+  background-color: #E0E0DD;
+  
+}
+
+
+/* Contenitori */
+
+.top-green-bar{
+  background-color: #34A884;
+  height: 120px;
+  margin-bottom: -80px;
+}
+
+.whatsapp-web-container{
+  display: flex;
+
+  border-radius: 5px;
+  margin: 0 auto;
+
+  width: 90%;
+  max-width: 1200px;
+  min-width: 600px;
+  height: calc(100vh - 80px);
+  background-color: #EAEAEA;
+
+  box-shadow: 0px 5px 10px #2a2a2a;
+}
+
+.whatsapp-web-container aside{
+  width: 40%;
+  border-right: 1px solid #D7D6D5;
+}
+
+.whatsapp-web-container section{
+  width: 60%;
+}
+
+
+
+/* Colonna Laterale Chat */
+
+
+
+
+/* Colonna Messaggi */
+
+
+
+
+
+
+
+
