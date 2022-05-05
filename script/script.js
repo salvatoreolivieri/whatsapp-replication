@@ -1,5 +1,5 @@
 
-const app = new VTTCue({
+const app = new Vue({
 
   el: "#app",
 
@@ -31,7 +31,7 @@ const app = new VTTCue({
       },
 
       {
-          name: 'Lego',
+          name: 'Dave The Lego',
           avatar: '_2',
           visible: true,
           messages: [
@@ -113,7 +113,7 @@ const app = new VTTCue({
       },
 
       {
-          name: 'Samuele',
+          name: 'Jacob',
           avatar: '_6',
           visible: true,
           messages: [

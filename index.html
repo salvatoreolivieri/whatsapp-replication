@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/media/whatsapp-favicon.png" type="image/x-icon">
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.css' integrity='sha512-1hsteeq9xTM5CX6NsXiJu3Y/g+tj+IIwtZMtTisemEv3hx+S9ngaW4nryrNcPM4xGzINcKbwUJtojslX2KG+DQ==' crossorigin='anonymous'/>
   <link rel="stylesheet" href="style/style.css">
   <title>WhatsApp Web</title>
@@ -21,25 +22,193 @@
       <aside> 
 
         <!-- contenitore con il mio profilo -->
-        <div>
+        <div class="profile-container">
+
+          <div class="profile-container-element">
+
+            <div class="img-container">
+              <img src="media/me.JPG" alt="">
+            </div>
+            
+            <div>
+              <span>Salvatore Olivieri</span>
+            </div>
+          </div>
+
+          <div>
+            <i class="fa-solid fa-moon"></i>
+            <i class="fa-solid fa-message"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+
+          <div>
+
+          </div>
 
         </div>
 
 
-        <!-- contenitore con il mio profilo -->
-        <div>
+        <!-- contenitore notifiche desktop -->
+        <div class="desktop-notification-container">
+
+          <div style="display: flex; align-items: center;">
+  
+            <div class="silence-mod-container">
+              <i class="fa-solid fa-bell-slash"></i>
+            </div>
+            
+            <div>
+              <span>Ricevi notifiche di nuovi messaggi</span><br>
+              <span style="font-size: 13px; color: #767676; text-decoration: underline; cursor: pointer;">Attiva notifiche desktop</span>
+
+            </div>
+          </div>
 
         </div>
 
 
         <!-- contenitore con barra di ricerca -->
-        <div>
+        <div class="search-bar-container">
+
+          <div class="input-form-container">
+            <i style="margin: 0 10px; color: #B1B2B2;" class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Cerca o inizia una nuova chat">
+          </div>
 
         </div>
 
 
         <!-- contenitore chat dove applicare il v-for -->
-        <div>
+        <div class="user-contact-container">
+
+          <div class="user-contact">
+  
+            <div style="display: flex; align-items: center;">
+  
+              <div class="img-container">
+                <img src="media/avatar_1.JPG" alt="">
+              </div>
+              
+              <div>
+                <span>Leonardo Da Vinci</span><br>
+                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
+
+              </div>
+            </div>
+  
+          </div>
+
+          <div class="user-contact">
+  
+            <div style="display: flex; align-items: center;">
+  
+              <div class="img-container">
+                <img src="media/avatar_2.JPG" alt="">
+              </div>
+              
+              <div>
+                <span>Dave The Lego</span><br>
+                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
+              </div>
+            </div>
+  
+          </div>
+
+          <div class="user-contact">
+  
+            <div style="display: flex; align-items: center;">
+  
+              <div class="img-container">
+                <img src="media/avatar_3.JPG" alt="">
+              </div>
+              
+              <div>
+                <span>Venere</span><br>
+                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
+              </div>
+            </div>
+  
+          </div>
+
+          <div class="user-contact">
+  
+            <div style="display: flex; align-items: center;">
+  
+              <div class="img-container">
+                <img src="media/avatar_4.JPG" alt="">
+              </div>
+              
+              <div>
+                <span>Trevor</span><br>
+                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
+              </div>
+            </div>
+  
+          </div>
+
+          <div class="user-contact">
+  
+            <div style="display: flex; align-items: center;">
+  
+              <div class="img-container">
+                <img src="media/avatar_5.JPG" alt="">
+              </div>
+              
+              <div>
+                <span>Lisa</span><br>
+                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
+              </div>
+            </div>
+  
+          </div>
+
+          <div class="user-contact">
+  
+            <div style="display: flex; align-items: center;">
+  
+              <div class="img-container">
+                <img src="media/avatar_6.JPG" alt="">
+              </div>
+              
+              <div>
+                <span>Jacob</span><br>
+                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
+              </div>
+            </div>
+  
+          </div>
+
+          <div class="user-contact">
+  
+            <div style="display: flex; align-items: center;">
+  
+              <div class="img-container">
+                <img src="media/avatar_7.JPG" alt="">
+              </div>
+              
+              <div>
+                <span>Jimmy</span><br>
+                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
+              </div>
+            </div>
+  
+          </div>
+
+          <div class="user-contact">
+  
+            <div style="display: flex; align-items: center;">
+  
+              <div class="img-container">
+                <img src="media/avatar_8.JPG" alt="">
+              </div>
+              
+              <div>
+                <span>Archimede</span><br>
+                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
+              </div>
+            </div>
+  
+          </div>
 
         </div>
 
@@ -50,7 +219,7 @@
       <section>
 
         <!-- contenitore con il profilo del contatto -->
-        <div>
+        <div class="profile-container">
 
         </div>
 
@@ -73,6 +242,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
-  <script src="script.js"></script>
+  <script src="script/script.js"></script>
 </body>
 </html>
