@@ -35,13 +35,13 @@
             </div>
           </div>
 
-          <div>
-            <i class="fa-solid fa-moon"></i>
-            <i class="fa-solid fa-message"></i>
-            <i class="fa-solid fa-ellipsis-vertical"></i>
-          </div>
-
-          <div>
+          <div style="margin-right: 10px;">
+            <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+              <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
+            </svg>
+            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="hidden bi bi-brightness-low" viewBox="0 0 16 16">
+              <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
+            </svg>
 
           </div>
 
@@ -83,7 +83,7 @@
 
           <div class="user-contact">
   
-            <div style="display: flex; align-items: center;">
+            <div class="user-info">
   
               <div class="img-container">
                 <img src="media/avatar_1.JPG" alt="">
@@ -93,7 +93,9 @@
                 <span>Leonardo Da Vinci</span><br>
                 <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
 
+                <span class="orario-last-message">12:00</span>
               </div>
+
             </div>
   
           </div>
@@ -221,17 +223,67 @@
         <!-- contenitore con il profilo del contatto -->
         <div class="profile-container">
 
+          <div class="profile-container-element">
+
+            <div class="img-container">
+              <img src="media/avatar_1.JPG" alt="">
+            </div>
+            
+            <div>
+              <span>Leonardo Da Vinci</span><br>
+              <span style="font-size: 13px; color: grey;">Ultimo accesso oggi alle 12:00</span>
+            </div>
+          </div>
+
+          <div style="margin-right: 10px;">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <i class="fa-solid fa-paperclip"></i>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+            </svg>
+
+          </div>
+
         </div>
 
 
         <!-- contenitore con la chat -->
-        <div>
+        <div class="chat-container">
+
+          <div class="message-mine-container">
+            <div class="message-mine">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque saepe aperiam at possimus, voluptas hic maiores odit voluptates rerum facere!
+              <span class="orario-messaggio-mio">12:00</span>
+            </div>
+          </div>
+
+          <div class="friend-message-container">
+            <div class="friend-message">
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Neque saepe aperiam at possimus, voluptas hic maiores odit voluptates rerum facere!
+              <span class="orario-messaggio-amico">12:00</span>
+            </div>
+          </div>
 
         </div>
 
 
         <!-- contenitore dove scrivere il messaggio -->
-        <div>
+        <div class="write-message-container">
+
+          <div>
+            <i class="fa-solid fa-face-smile"></i>
+          </div>
+
+          <div class="input-write-message-container">
+
+            <div class="input-write-message">
+              <input type="text" placeholder="Scrivi un messaggio">
+            </div>
+  
+          </div>
+
+          <div>
+            <i class="fa-solid fa-microphone"></i>
+          </div>
 
         </div>
         

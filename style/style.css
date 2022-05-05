@@ -9,6 +9,10 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+::selection{
+  background-color: rgba(52, 168, 132, 0.3) grey;
+}
+
 body{
   background-color: #E0E0DD;
   
@@ -31,20 +35,11 @@ body{
 
   width: 90%;
   max-width: 1400px;
-  min-width: 600px;
+  /* min-width: 600px; */
   height: calc(100vh - 80px);
   background-color: #EAEAEA;
 
   box-shadow: 0px 5px 10px #2a2a2a;
-}
-
-.whatsapp-web-container aside{
-  width: 40%;
-  border-right: 1px solid #D7D6D5;
-}
-
-.whatsapp-web-container section{
-  width: 60%;
 }
 
 
@@ -52,6 +47,11 @@ body{
 /*
   Colonna Laterale Chat
 */
+
+.whatsapp-web-container aside{
+  width: 40%;
+  border-right: 1px solid #D7D6D5;
+}
 
 
 /* Il mio profilo */
@@ -72,15 +72,19 @@ body{
 .profile-container-element{
   display: flex;
   align-items: center;
-  width: 80%;
+}
+
+.profile-container svg{
+  cursor: pointer;
+  margin-right: 5px;
+  color: #B1B2B2;
 }
 
 .profile-container i{
-  color: #B1B2B2;
-  cursor: pointer;
-  font-size: 20px;
-
   margin-right: 10px;
+  color: #B1B2B2;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 
@@ -97,7 +101,7 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
+  min-width: 50px;
   height: 50px;
   margin: 0 10px;
   border-radius: 50px;
@@ -140,7 +144,7 @@ body{
 }
 
 
-/* Chat */
+/* Contatti */
 .user-contact-container{
   background-color: white;
   height: calc(100% - 190px);
@@ -155,12 +159,131 @@ body{
   padding-top: 10px;
 }
 
+.user-info{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.orario-last-message{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 12px;
+}
 
 
 /*
   Colonna Messaggi
 */
 
+.whatsapp-web-container section{
+  width: 60%;
+}
+
+
+/* Chat */
+.chat-container{
+  height: calc(100% - 140px);
+  border-top: 1px solid #D7D6D5;
+  border-bottom: 1px solid #D7D6D5;
+  background-image: url("../media/light-background.jpg");
+  background-size: cover;
+  overflow: scroll;
+}
+
+.message-mine-container{
+  display: flex;
+  justify-content: end;
+}
+
+/* mio */
+.message-mine{
+  position: relative;
+  margin: 40px;
+  background-color: #D5F9BA;
+  padding: 20px;
+  width: 40%;
+  border-radius: 10px;
+}
+
+.orario-messaggio-mio{
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 12px;
+}
+
+
+/* amico */
+.friend-message-container{
+  display: flex;
+  justify-content: start;
+}
+
+.friend-message{
+  position: relative;
+  margin: 40px;
+  background-color: white;
+  padding: 20px;
+  width: 40%;
+  border-radius: 10px;
+}
+
+.orario-messaggio-amico{
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  font-size: 12px;
+}
+
+
+
+/* Dove si scrivono i messaggi */
+.write-message-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  height: 70px;
+}
+
+.write-message-container i {
+  color: #6B7375;
+  font-size: 18px;
+}
+
+.input-write-message-container{
+  height: 70px;
+  overflow: scroll;
+  padding: 10px;
+  width: 90%;
+}
+
+.input-write-message{
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: 1px solid #D7D6D5;
+  border-radius: 5px;
+}
+
+.input-write-message input{
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  border: none;
+  padding-left: 10px;
+  border-radius: 5px;
+}
+
+.input-write-message input:focus{
+  outline: none;
+}
 
 
 
@@ -171,6 +294,10 @@ body{
 /* 
   UTILITIES
 */
+
+.hidden{
+  display: none;
+}
 
 .img-container{ 
   display: flex;
@@ -185,4 +312,19 @@ body{
   width: 100%;
   width: 100%;
   border-radius: 50px;
+}
+
+
+/*
+  MEDIA QUERY
+*/
+
+@media (max-width: 784px) {
+  .whatsapp-web-container aside{
+    width: 1000%;
+  }
+
+  .whatsapp-web-container section{
+    display: none;
+  }
 }
