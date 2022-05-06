@@ -5,7 +5,7 @@ const app = new Vue({
 
   data: {
 
-    contact: [
+    contacts: [
 
       {
           name: 'Leonardo Da Vinci',
@@ -177,13 +177,20 @@ const app = new Vue({
       }
     ],
 
-    nuovoDato: null
+    activeIndex: 0
 
 
   },
 
   methods: {
 
+    getImgUrl(index){
+        return `media/avatar${this.contacts[index].avatar}.JPG`
+    },
+
+    activeMessage(index){
+        this.activeIndex = index;
+    },
   }
 
 

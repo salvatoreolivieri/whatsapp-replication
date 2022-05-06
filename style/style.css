@@ -9,10 +9,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-::selection{
-  background-color: rgba(52, 168, 132, 0.3) grey;
-}
-
 body{
   background-color: #E0E0DD;
   
@@ -152,11 +148,15 @@ body{
   cursor: pointer;
 }
 
-.user-contact-container .user-contact{
+.user-contact{
   background-color: white;
   border-top: 1px solid #D7D6D5;
   height: 70px;
   padding-top: 10px;
+}
+
+.active{
+  background-color: #E9EBEB;
 }
 
 .user-info{

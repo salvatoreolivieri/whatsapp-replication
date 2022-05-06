@@ -81,133 +81,21 @@
         <!-- contenitore chat dove applicare il v-for -->
         <div class="user-contact-container">
 
-          <div class="user-contact">
+          <div @click="activeMessage(index)" v-for="(item, index) in contacts" class="user-contact" :class="activeIndex === index ? 'active' : '' ">
   
             <div class="user-info">
   
               <div class="img-container">
-                <img src="media/avatar_1.JPG" alt="">
+                <img :src="getImgUrl(index)" alt="">
               </div>
               
               <div>
-                <span>Leonardo Da Vinci</span><br>
+                <span>{{item.name}}</span><br>
                 <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
 
                 <span class="orario-last-message">12:00</span>
               </div>
 
-            </div>
-  
-          </div>
-
-          <div class="user-contact">
-  
-            <div style="display: flex; align-items: center;">
-  
-              <div class="img-container">
-                <img src="media/avatar_2.JPG" alt="">
-              </div>
-              
-              <div>
-                <span>Dave The Lego</span><br>
-                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
-              </div>
-            </div>
-  
-          </div>
-
-          <div class="user-contact">
-  
-            <div style="display: flex; align-items: center;">
-  
-              <div class="img-container">
-                <img src="media/avatar_3.JPG" alt="">
-              </div>
-              
-              <div>
-                <span>Venere</span><br>
-                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
-              </div>
-            </div>
-  
-          </div>
-
-          <div class="user-contact">
-  
-            <div style="display: flex; align-items: center;">
-  
-              <div class="img-container">
-                <img src="media/avatar_4.JPG" alt="">
-              </div>
-              
-              <div>
-                <span>Trevor</span><br>
-                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
-              </div>
-            </div>
-  
-          </div>
-
-          <div class="user-contact">
-  
-            <div style="display: flex; align-items: center;">
-  
-              <div class="img-container">
-                <img src="media/avatar_5.JPG" alt="">
-              </div>
-              
-              <div>
-                <span>Lisa</span><br>
-                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
-              </div>
-            </div>
-  
-          </div>
-
-          <div class="user-contact">
-  
-            <div style="display: flex; align-items: center;">
-  
-              <div class="img-container">
-                <img src="media/avatar_6.JPG" alt="">
-              </div>
-              
-              <div>
-                <span>Jacob</span><br>
-                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
-              </div>
-            </div>
-  
-          </div>
-
-          <div class="user-contact">
-  
-            <div style="display: flex; align-items: center;">
-  
-              <div class="img-container">
-                <img src="media/avatar_7.JPG" alt="">
-              </div>
-              
-              <div>
-                <span>Jimmy</span><br>
-                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
-              </div>
-            </div>
-  
-          </div>
-
-          <div class="user-contact">
-  
-            <div style="display: flex; align-items: center;">
-  
-              <div class="img-container">
-                <img src="media/avatar_8.JPG" alt="">
-              </div>
-              
-              <div>
-                <span>Archimede</span><br>
-                <span style="font-size: 13px; color: grey;">Ultimo messaggio inviato</span>
-              </div>
             </div>
   
           </div>
@@ -226,7 +114,7 @@
           <div class="profile-container-element">
 
             <div class="img-container">
-              <img src="media/avatar_1.JPG" alt="">
+              <img src="media/avatar_1.JPG" :alt="contacts.name">
             </div>
             
             <div>
