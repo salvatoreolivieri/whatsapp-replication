@@ -177,8 +177,17 @@ const app = new Vue({
       }
     ],
 
-    activeIndex: 0
+    activeIndex: 0,
 
+    timestamp: null,
+
+    newMessage: "",
+
+    newResponse: {
+        date: 'ora',
+        message: 'oks bro',
+        status: 'received'
+    }
 
   },
 
@@ -196,11 +205,39 @@ const app = new Vue({
         alert("Stai per attivare le notifiche desktop")
     },
 
+    addNewMessage(){
+
+        const newMessagePush = {
+            date: "",
+            message: this.newMessage,
+            status: "sent",
+        }
+
+       this.contacts[this.activeIndex].messages.push(newMessagePush);
+
+       this.newMessage = "";
+
+       this.contacts[this.activeIndex].messages.push(this.newResponse);
+
+    },
+
+    addNewResponse(){
+        this.contacts[this.activeIndex].messages.push(this.newResponse);
+    },
+
+    getNow() {
+        const today = new Date();
+        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+        const dateTime = date +' '+ time;
+        this.timestamp = dateTime;
+    },
+
     darkMode(){
 
     }
 
-  }
+  },
 
 
 

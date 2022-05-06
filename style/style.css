@@ -146,6 +146,7 @@ body{
   height: calc(100% - 190px);
   overflow: scroll;
   cursor: pointer;
+  border-radius: 0 0 0 5px;
 }
 
 .user-contact{
@@ -195,6 +196,17 @@ body{
 .message-mine-container{
   display: flex;
   justify-content: end;
+  position: relative;
+}
+
+.punta-verde{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.punta-verde img{
+  width: 60px;
 }
 
 /* mio */
@@ -221,6 +233,17 @@ body{
 .friend-message-container{
   display: flex;
   justify-content: start;
+  position: relative;
+}
+
+.punta-bianca{
+  position: absolute;
+  top: 15px;
+  left: 0;
+}
+
+.punta-bianca img{
+  width: 60px;
 }
 
 .friend-message{
@@ -255,6 +278,7 @@ body{
 .write-message-container i {
   color: #6B7375;
   font-size: 18px;
+  cursor: pointer;
 }
 
 .input-write-message-container{
