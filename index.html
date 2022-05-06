@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html :class=" dark ? 'dark' : '' " lang="en">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <div id="app">
+  <div :class=" dark ? 'dark' : ''" id="app">
 
     <div class="top-green-bar"></div>
 
@@ -36,10 +36,10 @@
           </div>
 
           <div style="margin-right: 10px;">
-            <svg @click="darkMode()" id="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
+            <svg @click="darkMode()" v-if="dark === false" id="moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-moon" viewBox="0 0 16 16">
               <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278zM4.858 1.311A7.269 7.269 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.316 7.316 0 0 0 5.205-2.162c-.337.042-.68.063-1.029.063-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286z"/>
             </svg>
-            <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="hidden bi bi-brightness-low" viewBox="0 0 16 16">
+            <svg @click="darkMode()" v-if="dark === true" id="sun" xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="bi bi-brightness-low" viewBox="0 0 16 16">
               <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm.5-9.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm0 11a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm5-5a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm-11 0a.5.5 0 1 1 0-1 .5.5 0 0 1 0 1zm9.743-4.036a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm-7.779 7.779a.5.5 0 1 1-.707-.707.5.5 0 0 1 .707.707zm7.072 0a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707zM3.757 4.464a.5.5 0 1 1 .707-.707.5.5 0 0 1-.707.707z"/>
             </svg>
 
@@ -72,7 +72,7 @@
 
           <div class="input-form-container">
             <i style="margin: 0 10px; color: #B1B2B2;" class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Cerca o inizia una nuova chat">
+            <input @keydown="filterContactList()"  v-model="searchInput" type="text" placeholder="Cerca o inizia una nuova chat">
           </div>
 
         </div>
@@ -138,7 +138,10 @@
         <div class="chat-container">
 
           <div v-for="item in contacts[activeIndex].messages" class="riferimento-chevron" :class="item.status === 'sent' ? 'message-mine-container' : 'friend-message-container' ">
-            <!-- <i style="position: relative;" class="fa-solid fa-chevron-down"></i> -->
+
+            <i v-if="item.status === 'sent'" class="chevron-sent fa-solid fa-chevron-down"></i>
+            <i v-if="item.status === 'received'" class="chevron-received fa-solid fa-chevron-down"></i>
+
             <div v-if="item.status === 'sent'" class="punta-verde"><img src="media/Punta verde.png" alt=""></div>
             <div v-if="item.status === 'received'" class="punta-bianca"><img src="media/Punta bianca.png" alt=""></div>
             <div :class="item.status === 'sent' ? 'message-mine' : 'friend-message' ">

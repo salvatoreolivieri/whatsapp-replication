@@ -179,11 +179,13 @@ const app = new Vue({
 
     activeIndex: 0,
 
-    timestamp: null,
-
     newMessage: "",
 
     newResponse: "",
+
+    searchInput: "",
+
+    dark: false,
 
   },
 
@@ -237,8 +239,28 @@ const app = new Vue({
         return dateTime;
     },
 
+    filterContactList(){
+        console.log("start search");
+        // this.contacts[0].name.filter(this.searchInput)
+    },
+
+
     darkMode(){
 
+        const darkModeSoundOn = new Audio("../sound/switch-on.mp3")
+        const darkModeSoundOff = new Audio("../sound/switch-off.mp3")
+        darkModeSoundOn.volume = 1;
+        // darkModeSoundOn.play();
+
+        if (this.dark){
+            darkModeSoundOff.play();
+            this.dark = !this.dark
+        } else{
+            darkModeSoundOn.play();
+            this.dark = !this.dark
+        }
+        
+        console.log(this.dark);
     }
 
   },
