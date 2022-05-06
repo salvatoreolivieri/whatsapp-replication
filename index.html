@@ -91,9 +91,9 @@
               
               <div>
                 <span>{{item.name}}</span><br>
-                <span style= "font-size: 13px; color: grey;">{{item.messages[0].message}}</span>
+                <span style= "font-size: 13px; color: grey;">{{item.messages[item.messages.length - 1].message}}</span>
 
-                <span class="orario-last-message">{{item.messages[0].date}}</span>
+                <span class="orario-last-message">{{item.messages[item.messages.length - 1].date}}</span>
               </div>
 
             </div>
@@ -137,7 +137,8 @@
         <!-- contenitore con la chat -->
         <div class="chat-container">
 
-          <div v-for="item in contacts[activeIndex].messages" :class="item.status === 'sent' ? 'message-mine-container' : 'friend-message-container' ">
+          <div v-for="item in contacts[activeIndex].messages" class="riferimento-chevron" :class="item.status === 'sent' ? 'message-mine-container' : 'friend-message-container' ">
+            <!-- <i style="position: relative;" class="fa-solid fa-chevron-down"></i> -->
             <div v-if="item.status === 'sent'" class="punta-verde"><img src="media/Punta verde.png" alt=""></div>
             <div v-if="item.status === 'received'" class="punta-bianca"><img src="media/Punta bianca.png" alt=""></div>
             <div :class="item.status === 'sent' ? 'message-mine' : 'friend-message' ">

@@ -60,7 +60,7 @@ const app = new Vue({
           messages: [
               {
                   date: '28/03/2020 10:10:40',
-                  message: 'Mamma sono incinta, Botticelli mi ha ingravidata...',
+                  message: 'Mamma sono con Botticelli stasera.',
                   status: 'received'
               },
               {
@@ -183,11 +183,7 @@ const app = new Vue({
 
     newMessage: "",
 
-    newResponse: {
-        date: 'ora',
-        message: 'oks bro',
-        status: 'received'
-    }
+    newResponse: "",
 
   },
 
@@ -208,7 +204,7 @@ const app = new Vue({
     addNewMessage(){
 
         const newMessagePush = {
-            date: "",
+            date: this.getNow(),
             message: this.newMessage,
             status: "sent",
         }
@@ -217,20 +213,28 @@ const app = new Vue({
 
        this.newMessage = "";
 
-       this.contacts[this.activeIndex].messages.push(this.newResponse);
+       this.addNewResponse()
 
     },
 
     addNewResponse(){
-        this.contacts[this.activeIndex].messages.push(this.newResponse);
+
+        const newResponse = {
+            date:  this.getNow(),
+            message: 'oks bro',
+            status: 'received'
+        }
+
+        setTimeout(() => this.contacts[this.activeIndex].messages.push(newResponse), 3000);
+
     },
 
     getNow() {
         const today = new Date();
-        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const date = ('0' + today.getDate()).slice(-2) + '/' + ('0' + (today.getMonth()+1)).slice(-2) + '/' + today.getFullYear();
         const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
         const dateTime = date +' '+ time;
-        this.timestamp = dateTime;
+        return dateTime;
     },
 
     darkMode(){
@@ -238,9 +242,6 @@ const app = new Vue({
     }
 
   },
-
-
-
 
 
 })
