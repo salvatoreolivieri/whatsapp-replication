@@ -230,7 +230,7 @@ body{
 
 .punta-verde{
   position: absolute;
-  top: 0;
+  top: 65px;
   right: 0;
 }
 
@@ -240,15 +240,17 @@ body{
 
 .chevron-sent{
   position: absolute;
-  top: 26px;
-  right: 40px;
+  top: 87px;
+  left: 440px;
   z-index: 999;
   font-size: 10px;
   display: none;
   cursor: pointer;
 }
 
-.message-mine-container:hover .chevron-sent{
+.message-mine-container:hover .chevron-sent,
+.message-mine:hover .dropdown-sent,
+.message-mine:hover .aggancio-container-sent{
   display: block;
   color: black;
 }
@@ -258,7 +260,7 @@ body{
 .message-mine{
   position: relative;
   margin-right: 30px;
-  margin-top: 20px;
+  margin-top: 30px;
   background-color: #D5F9BA;
   padding: 20px;
   padding-bottom: 30px;
@@ -266,7 +268,33 @@ body{
   border-radius: 10px;
   transition: all 0.5s;
   color: black;
+}
 
+.dropdown-sent{
+  position: absolute;
+  top: -63px;
+  left: -62px;
+  background-color: #2E2626 ;
+  z-index: 999999;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+.dropdown-sent li{
+  color: white;
+}
+
+.dropdown-sent li:hover{
+  color: #34A884;
+}
+
+.aggancio-container-sent{
+  position: absolute;
+  top: -11px;
+  left: -8px;
+  z-index: 1000000;
+  display: none;
 }
 
 .orario-messaggio-mio{
@@ -294,6 +322,34 @@ body{
   width: 60px;
 }
 
+.dropdown-received{
+  position: absolute;
+  top: -62px;
+  left: -20px;
+  background-color: #2E2626 ;
+  z-index: 999999;
+  padding: 10px;
+  border-radius: 5px;
+  display: none;
+}
+
+.dropdown-received li{
+  color: white;
+}
+
+.dropdown-received li:hover{
+  color: #34A884;
+}
+
+.aggancio-container-received{
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  z-index: 1000000;
+  display: none;
+
+}
+
 .chevron-received{
   position: absolute;
   top: 26px;
@@ -304,10 +360,13 @@ body{
   cursor: pointer;
 }
 
-.friend-message-container:hover .chevron-received{
+.friend-message-container:hover .chevron-received,
+.friend-message:hover .dropdown-received,
+.friend-message:hover .aggancio-container-received{
   display: block;
   color: black;
 }
+
 
 
 .friend-message{
@@ -328,6 +387,22 @@ body{
   bottom: 5px;
   right: 10px;
   font-size: 12px;
+}
+
+
+
+
+/* emoji */
+
+.emoji-container{
+  position: relative;
+}
+
+.emoji{
+  width: 300px;
+  position: absolute;
+  top: -350px;
+  left: -140px;
 }
 
 

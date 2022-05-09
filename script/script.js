@@ -19,14 +19,19 @@ const app = new Vue({
               },
               {
                   date: '10/01/2020 15:32:00',
-                  message: 'Ho sentito Lisa e mi ha detto che siete assieme verso sera, ci vediamo tutti insieme che mi fate vedere qualche altra opera e mi dai qualche consiglio di pittura?',
-                  status: 'sent'
+                  message: 'Ciao bello, sto alla grande, e tu?! ',
+                  status: 'received'
               },
               {
-                  date: '10/01/2020 16:15:22',
-                  message: 'Ciao bello, sto alla grande, si vieni pure! ',
-                  status: 'received'
-              }
+                date: '10/01/2020 16:15:22',
+                message: 'Bene grazie, ho sentito Lisa e mi ha detto che siete assieme verso sera, ci vediamo tutti insieme che mi fate vedere qualche altra opera e mi dai qualche consiglio di pittura?',
+                status: 'sent'
+            },
+            {
+                date: '10/01/2020 16:32:00',
+                message: 'Yess, vieni! ',
+                status: 'received'
+            },
           ],
       },
 
@@ -49,7 +54,12 @@ const app = new Vue({
                   date: '20/03/2020 16:35:00',
                   message: 'Mi piacerebbe ma domani non posso, ho allenamento.',
                   status: 'sent'
-              }
+              },
+              {
+                date: '20/03/2020 16:30:55',
+                message: 'Oks allora prossima volta',
+                status: 'received'
+              },
           ],
       },
 
@@ -59,18 +69,23 @@ const app = new Vue({
           visible: true,
           messages: [
               {
+                  date: '28/03/2020 10:20:10',
+                  message: 'Sei con Botticelli stasera?',
+                  status: 'sent'
+              },
+              {
                   date: '28/03/2020 10:10:40',
-                  message: 'Mamma sono con Botticelli stasera.',
+                  message: 'Sisi sono con lui, magari ci vediamo domani a teatro.',
                   status: 'received'
               },
               {
                   date: '28/03/2020 10:20:10',
-                  message: 'Sicura di non aver sbagliato chat?',
+                  message: 'Oks a domani!',
                   status: 'sent'
               },
               {
                   date: '28/03/2020 16:15:22',
-                  message: 'Ah scusa!',
+                  message: 'A Domani',
                   status: 'received'
               }
           ],
@@ -131,7 +146,12 @@ const app = new Vue({
                   date: '10/01/2020 15:51:00',
                   message: 'Dai poi fammi sapere!',
                   status: 'sent'
-              }
+              },
+              {
+                date: '10/01/2020 15:50:00',
+                message: 'Va bene',
+                status: 'received'
+            },
           ],
       },
 
@@ -161,16 +181,21 @@ const app = new Vue({
               {
                   date: '10/01/2020 15:30:55',
                   message: 'Ciao, andiamo a mangiare la pizza stasera?',
-                  status: 'received'
+                  status: 'sent'
               },
               {
                   date: '10/01/2020 15:50:00',
                   message: 'Vai così parliamo un po\' di filosofia',
+                  status: 'received'
+              },
+              {
+                  date: '10/01/2020 15:51:00',
+                  message: 'Grande!!',
                   status: 'sent'
               },
               {
                   date: '10/01/2020 15:51:00',
-                  message: 'Grande Sal!!',
+                  message: 'A più tardi!!',
                   status: 'received'
               }
           ],
@@ -186,6 +211,7 @@ const app = new Vue({
     searchInput: "",
 
     dark: false,
+    activeEmoji: false,
 
   },
 
@@ -241,7 +267,15 @@ const app = new Vue({
 
     filterContactList(){
         console.log("start search");
-        // this.contacts[0].name.filter(this.searchInput)
+
+        this.contacts.forEach(item => {
+            if(item.name.toLowerCase().includes(this.searchInput.toLowerCase())){
+                item.visible = true
+            } else {
+                item.visible = false
+            }
+        });
+
     },
 
 
@@ -261,6 +295,15 @@ const app = new Vue({
         }
         
         console.log(this.dark);
+    },
+
+    showSmile(){
+        this.activeEmoji = !this.activeEmoji
+    },
+
+    deleteMessage(index){
+        console.log("start delete");
+        this.contacts[this.activeMessage].messages.splice(4, 1)
     }
 
   },

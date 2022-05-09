@@ -72,7 +72,7 @@
 
           <div class="input-form-container">
             <i style="margin: 0 10px; color: #B1B2B2;" class="fa-solid fa-magnifying-glass"></i>
-            <input @keydown="filterContactList()"  v-model="searchInput" type="text" placeholder="Cerca o inizia una nuova chat">
+            <input @keyup="filterContactList()"  v-model="searchInput" type="text" placeholder="Cerca o inizia una nuova chat">
           </div>
 
         </div>
@@ -81,7 +81,12 @@
         <!-- contenitore chat dove applicare il v-for -->
         <div class="user-contact-container">
 
-          <div @click="activeMessage(index)" v-for="(item, index) in contacts" class="user-contact" :class="activeIndex === index ? 'active' : '' ">
+          <div
+            @click="activeMessage(index)"
+            v-for="(item, index) in contacts"
+            v-if="item.visible"
+            class="user-contact"
+            :class="activeIndex === index ? 'active' : '' ">
   
             <div class="user-info">
   
@@ -139,12 +144,42 @@
 
           <div v-for="item in contacts[activeIndex].messages" class="riferimento-chevron" :class="item.status === 'sent' ? 'message-mine-container' : 'friend-message-container' ">
 
-            <i v-if="item.status === 'sent'" class="chevron-sent fa-solid fa-chevron-down"></i>
-            <i v-if="item.status === 'received'" class="chevron-received fa-solid fa-chevron-down"></i>
+            <!-- <i v-if="item.status === 'sent'" class="chevron-sent fa-solid fa-chevron-down"></i>
+            <i v-if="item.status === 'received'" class="chevron-received fa-solid fa-chevron-down"></i> -->
 
             <div v-if="item.status === 'sent'" class="punta-verde"><img src="media/Punta verde.png" alt=""></div>
+
             <div v-if="item.status === 'received'" class="punta-bianca"><img src="media/Punta bianca.png" alt=""></div>
+
             <div :class="item.status === 'sent' ? 'message-mine' : 'friend-message' ">
+
+
+               <!-- dropdown sent  -->
+
+              <!-- <div v-if="item.status === 'sent'" class="dropdown-sent">
+                <ul style="list-style: none; cursor: pointer;">
+                  <li>Info messaggio</li>
+                  <li @click="deleteMessage(index)">Cancella messaggio</li>
+                </ul>
+              </div> -->
+  
+              <!-- <div v-if="item.status === 'sent'" class="aggancio-container-sent">
+                <img style="width:50px;" src="media/aggancio.png" alt="">
+              </div> -->
+
+
+              <!-- dropdown received  -->
+
+              <!-- <div v-if="item.status === 'received'"  class="dropdown-received">
+                <ul style="list-style: none; cursor: pointer;">
+                  <li>Info messaggio</li>
+                  <li @click="deleteMessage()">Cancella messaggio</li>
+                </ul>
+              </div> -->
+  
+              <!-- <div v-if="item.status === 'received'" class="aggancio-container-received">
+                <img style="width:50px;" src="media/aggancio.png" alt="">
+              </div> -->
               {{item.message}}
               <span class="orario-messaggio-mio">{{item.date}}</span>
             </div>
@@ -156,14 +191,15 @@
         <!-- contenitore dove scrivere il messaggio -->
         <div class="write-message-container">
 
-          <div>
-            <i class="fa-solid fa-face-smile"></i>
+          <div class="emoji-container">
+            <img class="emoji" :class="activeEmoji ? '' : 'hidden' " src="media/emoji.png" alt="">
+            <i aria-colcount="emoji-button" @click="showSmile()" class="fa-solid fa-face-smile"></i>
           </div>
 
           <div class="input-write-message-container">
 
             <div class="input-write-message">
-              <input v-model="newMessage" @keyup.enter="addNewMessage()" type="text" placeholder="Scrivi un messaggio">
+              <input v-model.trim="newMessage" @keyup.enter="addNewMessage()" type="text" placeholder="Scrivi un messaggio">
             </div>
   
           </div>
